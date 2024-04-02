@@ -1,0 +1,56 @@
+<div style="background-color: #DDDDDD; width: 100vw; height: 95vh;">
+    <form (submit)="onSubmit()" class="m-5 p-5">
+        <div class="m-5" style="font-weight: bold;">
+            <div class="header">
+                <h2><strong style="font-size: 30px;">Update my profile:</strong></h2>
+            </div>
+            <div class="col-sm-5 mt-5">
+                <p>First Name:</p>
+                <input type="text" class="form-control border border-dark" name="firstName"
+                    [(ngModel)]="toSave.firstName">
+            </div>
+            <div class="col-sm-5 mt-5">
+                <p>Last Name:</p>
+                <input type="text" class="form-control border border-dark" name="lastName" [(ngModel)]="toSave.lastName">
+            </div>
+            <div class="col-sm-5 mt-5">
+                <p>Email:</p>
+                <input type="text" class="form-control border border-dark" name="email" [(ngModel)]="toSave.email">
+            </div>
+            <div class="my-5 d-flex justify-content-center">
+                <button class="btn btn-secondary btn-block fs-6 mx-2" routerLink="/">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-block fs-6">Save</button>
+            </div>
+        </div>
+    </form>
+    <div class="m-5 p-5">
+        <h2>My Orders</h2>
+        <table class="table table-hover product_item_list c_table theme-color">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>ZIP Code</th>
+                    <th>Status</th>
+                    <!-- <th>Actions</th> -->
+                </tr>
+            </thead>
+            <tbody *ngFor="let order of orders">
+                <tr>
+                    <td>{{ order.fullName }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.email }}</td>
+                    <td>{{ order.zipcode }}</td>
+                    <td>{{ order.status }}</td>
+                    <!-- <td>
+                        <a href="javascript:void(0);"
+                            class="btn btn-default waves-effect waves-float btn-sm waves-red mx-2" (click)="orderDetails(order.id)"><i class="zmdi zmdi-hc-fw"></i></a>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

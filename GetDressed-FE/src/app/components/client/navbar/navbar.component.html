@@ -1,0 +1,36 @@
+<div style="background-color: #9A9A9A; position: fixed; overflow: hidden; z-index: 1; top: 0; width: 100%;">
+    <div class="p-3 d-flex justify-content-between">
+        <div class="d-flex">
+            <img src="../../../../assets/images/gdlogo.png" alt="" style="height: 30px;" routerLink="/">
+        </div>
+        <div class="d-flex px-3" [hidden]="isAdmin">
+            <!-- <i class="zmdi zmdi-hc-fw" style="font-size: 30px;"></i> -->
+            <a routerLink="/dashboard/product" style="font-size: 20px; color: black; font-weight: 600;">Dashboard</a>
+        </div>
+        <div class="d-flex">
+            <div class="d-flex px-2">
+                <a routerLink="/cart" style="color: black;" [hidden]="isAuth()"><i class="zmdi zmdi-hc-fw"
+                        style="font-size: 30px;"></i></a>
+                <!-- <div style="font-size: 20px;">Cart</div> -->
+            </div>
+            <div class="d-flex px-2">
+                <div style="font-size: 20px; font-weight: 600; cursor: pointer;" class="px-2" routerLink="/profile"
+                    [hidden]="isAuth()">{{ firstName }} {{
+                    lastName}}</div>
+                <!-- <i class="zmdi zmdi-hc-fw" style="font-size: 30px;"></i> -->
+            </div>
+            <button (click)="logout()" [hidden]="isAuth()" style="background: none; border: none; outline: none;">
+                <i class="zmdi zmdi-power px-2" style="font-size: 30px;"></i>
+            </button>
+            <div class="d-flex justify-content-between">
+                <div style="font-size: 20px; border-radius: 10px; font-weight: 550; cursor: pointer"
+                    class="px-2 bg bg-white text-dark mx-2" routerLink="/auth/login" [hidden]="!isAuth()">
+                    LogIn</div>
+                <div style="font-size: 20px; border-radius: 10px; font-weight: 550; cursor: pointer"
+                    class="px-2 bg bg-white text-dark mx-2" routerLink="/auth/register" [hidden]="!isAuth()">
+                    SignUp</div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,63 @@
+<section class="content">
+    <div class="body_scroll">
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong style="font-size: 30px;">Products</strong></h2>
+                        </div>
+                        <div class="d-flex justify-content-end p-3">
+                            <button class="btn btn-primary" routerLink="/dashboard/product/add">+ Add Product</button>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover product_item_list c_table theme-color mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th>Promotion</th>
+                                            <th>Stock</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let product of products">
+                                        <tr>
+                                            <td>{{ product.image }}</td>
+                                            <td>{{ product.name }}</td>
+                                            <td>{{ product.description }}</td>
+                                            <td>{{ product.category }}</td>
+                                            <td>{{ product.price }}</td>
+                                            <td>{{ product.promotion }}</td>
+                                            <td>{{ product.stock }}</td>
+                                            <td>
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-default waves-effect waves-float btn-sm waves-green mx-2" (click)="editProduct(product.id)"><i
+                                                        class="zmdi zmdi-edit"></i></a>
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-default waves-effect waves-float btn-sm waves-red mx-2" (click)="deleteProduct(product.id)"><i
+                                                        class="zmdi zmdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="assets/bundles/footable.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/js/pages/tables/footable.js"></script><!-- Custom Js -->

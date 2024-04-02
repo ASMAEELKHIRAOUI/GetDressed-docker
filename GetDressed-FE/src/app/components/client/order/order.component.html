@@ -1,0 +1,38 @@
+<div style="background-color: #DDDDDD; width: 99.2vw;" class="d-flex justify-content-center mt-5">
+    <form (submit)="onSubmit()" class="p-5 m-5 border border-3 bg-white text-dark"
+        style="border-radius: 25px; box-shadow: 7px 7px #9A9A9A;">
+        <div class="m-5" style="font-weight: bold;">
+            <div class="header">
+                <h2><strong style="font-size: 30px;">Enter the order informations:</strong></h2>
+            </div>
+            <div class="col-sm-12 mt-5">
+                <p>Name:</p>
+                <input type="text" class="form-control border border-dark" name="fullName"
+                    [(ngModel)]="toSave.fullName">
+            </div>
+            <div class="col-sm-12 mt-5">
+                <p>Email:</p>
+                <input type="text" class="form-control border border-dark" name="email" [(ngModel)]="toSave.email">
+            </div>
+            <div class="col-sm-12 mt-5">
+                <p>Phone:</p>
+                <input type="text" class="form-control border border-dark" name="phone" [(ngModel)]="toSave.phone">
+            </div>
+            <div class="col-sm-12 mt-5">
+                <p>ZIP Code:</p>
+                <input type="text" class="form-control border border-dark" name="zipcode" [(ngModel)]="toSave.zipcode">
+            </div>
+            <div class="col-sm-12 mt-5">
+                <p>Address:</p>
+                <input type="text" class="form-control border border-dark" name="address" [(ngModel)]="toSave.address">
+            </div>
+            <div class="my-5 d-flex justify-content-center">
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btn-block fs-6">Submit Order</button>
+                    <button type="submit" class="btn btn-secondary btn-block fs-6 mx-2"
+                        routerLink="/dashboard/product">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,66 @@
+<section class="content">
+    <div class="body_scroll">
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong style="font-size: 30px;">Add Product</strong></h2>
+                        </div>
+                        <div class="body">
+                            <form (submit)="onSubmit()" class="m-3">
+                                <div class="col-sm-5 mt-5">
+                                    <p>Name</p>
+                                    <input type="text" class="form-control border border-dark" name="name"
+                                        [(ngModel)]="toSave.name">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Description</p>
+                                    <input type="text" class="form-control border border-dark" name="description"
+                                        [(ngModel)]="toSave.description">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Category</p>
+                                    <select class="form-control show-tick ms select2 border border-dark"
+                                        data-placeholder="Select" [(ngModel)]="toSave.category" name="category">
+                                        <!-- <option selected>Open this select menu</option> -->
+                                        @for (category of categories; track $index) {
+                                        <option value="{{category.name}}">{{category.name}}</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Price</p>
+                                    <input type="number" class="form-control border border-dark" name="price"
+                                        [(ngModel)]="toSave.price">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Promotion</p>
+                                    <input type="number" class="form-control border border-dark" name="promotion"
+                                        [(ngModel)]="toSave.promotion">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Stock</p>
+                                    <input type="number" class="form-control border border-dark" name="stock"
+                                        [(ngModel)]="toSave.stock">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Image</p>
+                                    <input type="file" class="form-control border border-dark" name="image"
+                                        [(ngModel)]="toSave.image">
+                                </div>
+                                <div class="m-4 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-secondary btn-block fs-6 mx-2"
+                                        routerLink="/dashboard/product">Cancel</button>
+                                    <button type="submit" class="btn btn-primary btn-block fs-6">Save
+                                        Product</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

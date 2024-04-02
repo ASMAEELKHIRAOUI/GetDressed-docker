@@ -1,0 +1,71 @@
+<section class="content">
+    <div class="body_scroll">
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong style="font-size: 30px;">Order Details</strong></h2>
+                        </div>
+                        <div class="body">
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Number:</p>
+                                <p style="font-weight: bold; font-size: large; font-size: large;">{{order.id}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Full Name:</p>
+                                <p style="font-weight: bold; font-size: large; font-size: large;">{{order.fullName}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Address:</p>
+                                <p style="font-weight: bold; font-size: large;">{{order.address}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Phone:</p>
+                                <p style="font-weight: bold; font-size: large;">{{order.phone}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Email:</p>
+                                <p style="font-weight: bold; font-size: large;">{{order.email}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">ZIP Code:</p>
+                                <p style="font-weight: bold; font-size: large;">{{order.zipcode}}</p>
+                            </div>
+                            <div class="col-sm-5 mt-5">
+                                <p style=" font-size: large;">Status:</p>
+                                <p style="font-weight: bold; font-size: large;">{{order.status}}</p>
+                            </div>
+                            <div class="mt-5">
+                                <p style=" font-size: large;">Order Items:</p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover product_item_list c_table theme-color mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Product</th>
+                                                <th>Category</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngFor="let orderItem of order.orderItems">
+                                            <tr>
+                                                <td>{{ orderItem.product?.id }}</td>
+                                                <td>{{ orderItem.product?.name }}</td>
+                                                <td>{{ orderItem.product?.category }}</td>
+                                                <td>{{ orderItem.quantity }}</td>
+                                                <td>{{ orderItem.total }} Dhs</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+<aside id="leftsidebar" class="sidebar">
+    <div class="navbar-brand">
+        <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
+        <a href=""><img routerLink="" src="../../../../assets/images/gdlogo.png" width="150" alt="RentalHive"
+                class="mx-3"></a>
+    </div>
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <div class="user-info">
+                    <a class="image" href="profile.html"><i class="zmdi zmdi-hc-fw" style="font-size: 30px;"></i></a>
+                    <div class="detail px-4">
+                        <h4>{{ firstName }}</h4>
+                        <small>{{ role }}</small>
+                    </div>
+                </div>
+            </li>
+            <li><a routerLink="/dashboard/product"><i class="zmdi zmdi-hc-fw"></i><span>Products</span></a></li>
+            <li><a routerLink="/dashboard/order"><i class="zmdi zmdi-hc-fw"></i><span>Orders</span></a></li>
+        </ul>
+    </div>
+</aside>
+<router-outlet></router-outlet>

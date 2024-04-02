@@ -1,0 +1,62 @@
+<section class="content">
+    <div class="body_scroll">
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong style="font-size: 30px;">Edit Order</strong></h2>
+                        </div>
+                        <div class="body">
+                            <form (submit)="onSubmit()" class="m-3">
+                                <div class="col-sm-5 mt-5">
+                                    <p>Full Name</p>
+                                    <input type="text" class="form-control border border-dark" name="fullName"
+                                        [(ngModel)]="toSave.fullName">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Address</p>
+                                    <input type="text" class="form-control border border-dark" name="address"
+                                        [(ngModel)]="toSave.address">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Phone</p>
+                                    <input type="text" class="form-control border border-dark" name="phone"
+                                        [(ngModel)]="toSave.phone">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Email</p>
+                                    <input type="text" class="form-control border border-dark" name="email"
+                                        [(ngModel)]="toSave.email">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>ZIP Code</p>
+                                    <input type="text" class="form-control border border-dark" name="zipcode"
+                                        [(ngModel)]="toSave.zipcode">
+                                </div>
+                                <div class="col-sm-5 mt-5">
+                                    <p>Status</p>
+                                    <select class="form-control show-tick ms select2 border border-dark"
+                                        data-placeholder="Select" [(ngModel)]="toSave.status" name="category">
+                                        <option value="PENDING">PENDING</option>
+                                        <option value="READY_FOR_DISPATCH">READY FOR DISPATCH</option>
+                                        <option value="DISPATCHED">DISPATCHED</option>
+                                        <option value="DELIVERED">DELIVERED</option>
+                                        <option value="RETURNED">RETURNED</option>
+                                    </select>
+                                </div>
+                                <div class="m-4 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-secondary btn-block fs-6 mx-2"
+                                        routerLink="/dashboard/order">Cancel</button>
+                                    <button type="submit" class="btn btn-primary btn-block fs-6">Save
+                                        Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

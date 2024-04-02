@@ -1,0 +1,47 @@
+<div style="background-color: #DDDDDD; width: 98vw;">
+    <div class="d-flex row p-5 m-5">
+        <div class="col-9 d-flex row mt-5 px-4">
+            <table class="table table-hover product_item_list c_table theme-color mb-0">
+                <tbody *ngFor="let cart of carts">
+                    <tr>
+                        <td><img src="../../../assets/images/home-bg.png" style="height: 100px; width: 100px;"
+                                class="rounded-4 ms-5"></td>
+                        <td>{{ cart.product.name }}</td>
+                        <td><input type="number" class="rounded mt-3 ps-3" min="1" name="quantity"
+                                max="{{ cart.product.stock }}" (ngModelChange)="updateQuantity(cart.id, cart.quantity)"
+                                [(ngModel)]="cart.quantity"></td>
+                        <td>{{ calculateTotal(cart) }} Dhs</td>
+                        <td>
+                            <a href="javascript:void(0);"
+                                class="btn btn-default waves-effect waves-float btn-sm waves-red mx-2"
+                                (click)="deleteCart(cart.id)"><i class="zmdi zmdi-delete"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3 my-5">
+            <div class="d-flex justify-content-between px-2">
+                <h4>
+                    {{ carts.length }} articles
+                </h4>
+                <h3 class="mt-4">
+                    {{ subtotal.toFixed(2) }} Dhs
+                </h3>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between px-2">
+                <h4>
+                    Total
+                </h4>
+                <h3 class="mt-4">
+                    {{ subtotal.toFixed(2) }} Dhs
+                </h3>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-center">
+                <button routerLink="/checkout" class="btn btn-primary waves-effect m-2 col-lg-12">CHECKOUT</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<form class="card auth_form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="header">
+        <img class="" src="assets/images/gdlogo.png" alt="Get Dressed" style="max-width: 60%; margin: 20px;">
+        <h5>SIGN IN</h5>
+    </div>
+    <div class="body">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Email" #email="ngModel" [(ngModel)]="form.email" name="email">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" #password="ngModel" [(ngModel)]="form.password" name="password">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+            </div>
+        </div>
+        <div class="checkbox">
+            <input id="remember_me" type="checkbox">
+            <label for="remember_me">Remember Me</label>
+        </div>
+        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">SIGN IN</button>
+        <div class="text-center p-3">Don't have an account? <a class="link" routerLink="/auth/register">Create one!</a></div>
+    </div>
+</form>

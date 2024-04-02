@@ -1,0 +1,52 @@
+<div style="background-color: #DDDDDD; width: 98vw;">
+    <div class="row clearfix">
+        <div class="col-lg-7">
+            <div class="" style="margin-top: 18%; padding: 70px;">
+                <img src="../../../assets/images/gdlogo.png" alt="" style="height: 100px;">
+                <div class="pt-5" style="font-size: xx-large; font-family: Proxima Soft;">
+                    <div class="pl-1 py-2">Explorez l'élégance sans fin </div>
+                    <div class="pl-3 py-2">Plongez dans une expérience de shopping en ligne</div>
+                    <div class="pl-5 py-2">Où chaque clic vous rapproche de la perfection vestimentaire</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <img src="../../../assets/images/home-bg.png" alt="">
+        </div>
+    </div>
+    <div class="p-5 m-5">
+        <h1>Products</h1>
+        <div class="d-flex justify-content-center">
+            <input type="text" class="rounded mt-3 ps-3 w-50 py-2" [(ngModel)]="searchTerm"
+                (ngModelChange)="search($event)" placeholder="Search products...">
+        </div>
+        <div class="row clearfix p-5">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of products">
+                <form (submit)="onSubmit(product.id)">
+                    <div class="card">
+                        <div class="body product_item">
+                            <img src="../../../assets/images/home-bg.png" alt="product" class="img-fluid cp_img" />
+                            <div class="product_details">
+                                <p style="font-weight: bold; font-size: x-large;">{{ product.name }}</p>
+                                <ul class="product_price list-unstyled">
+                                    <li class="old_price">{{ product.price }} Dhs</li>
+                                    <li class="new_price">-{{ product.promotion }}%</li>
+                                </ul>
+                            </div>
+                            <div class="action row">
+                                <a (click)="productDetails(product.id)"
+                                    class="btn btn-info waves-effect px-3 ml-4 col-lg-2 my-2"><i
+                                        class="zmdi zmdi-eye"></i></a>
+                                <button type="submit" class="btn btn-primary waves-effect m-2 col-lg-6">ADD TO
+                                    CART</button>
+                                <input type="number" min="1" max="{{ product.stock }}"
+                                    class="col-lg-2 form-control border border-dark my-2" style="height: auto;"
+                                    name="quantity" [(ngModel)]="productQuantities[product.id ? product.id : 0]">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

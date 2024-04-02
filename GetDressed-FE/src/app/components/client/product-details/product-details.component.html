@@ -1,0 +1,64 @@
+<div class="container-fluid" style="background-color: #DDDDDD;">
+    <div class="row clearfix p-5 m-5">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="body">
+                    <form (submit)="onSubmit(product.id)">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-12">
+                                <div class="preview preview-pic tab-content">
+                                    <div class="tab-pane active" id="product_1"><img src="assets/images/ecommerce/1.png"
+                                            class="img-fluid" alt="" /></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-8 col-md-12">
+                                <div class="product details mt-5">
+                                    <h3 class="product-title mb-0">{{ product.name }}</h3>
+                                    <h5 class="price mt-3">Current Price: <span class="col-amber"
+                                            style="font-weight: bold;">{{ product.price }}
+                                            Dhs</span></h5>
+                                    <h5 class="price mt-0" style="color: red; font-weight: bold;">-{{ product.promotion
+                                        }}%
+                                    </h5>
+                                    <hr>
+                                    <p class="product-description">{{ product.description }}</p>
+                                    <div class="action mt-4 d-flex">
+                                        <h5 class="mt-2">Quantity:</h5>
+                                        <input type="number" min="1" max="{{ product.stock }}"
+                                            class="form-control border border-dark mx-2"
+                                            style="width: 6%; font-size: 20px;" name="quantity"
+                                            [(ngModel)]="toSave.quantity">
+                                        <button class="btn btn-primary waves-effect" type="submit">ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="pt-5 mt-5">
+                    <h2 class="text-center">Similar Products</h2>
+                    <div class="row clearfix px-5">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of products">
+                            <div class="card" (click)="productDetails(product.id)">
+                                <div class="body product_item">
+                                    <img src="../../../assets/images/home-bg.png" alt="product"
+                                        class="img-fluid cp_img" />
+                                    <div class="product_details">
+                                        <p style="font-weight: bold; font-size: x-large;">{{ product.name }}</p>
+                                        <ul class="product_price list-unstyled">
+                                            <li class="col-amber" style="font-weight: bold; font-size: 18px;">{{
+                                                product.price }} Dhs
+                                            </li>
+                                            <li class="new_price" style="font-weight: bold; font-size: 18px;">-{{
+                                                product.promotion }}%</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
