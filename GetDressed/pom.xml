@@ -17,8 +17,8 @@
         <java.version>17</java.version>
         <properties-maven-plugin.version>1.2.1</properties-maven-plugin.version>
         <sonar-maven-plugin.version>.10.0.2594</sonar-maven-plugin.version>
-        <sonar.properties>sonar-project.properties</sonar.properties>
-        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
+<!--        <sonar.properties>sonar-project.properties</sonar.properties>-->
+<!--        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>-->
     </properties>
     <dependencies>
         <dependency>
@@ -83,11 +83,11 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.11.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.10.0.2594</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.sonarsource.scanner.maven</groupId>-->
+<!--            <artifactId>sonar-maven-plugin</artifactId>-->
+<!--            <version>3.10.0.2594</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -107,11 +107,11 @@
                         <goals>
                             <goal>read-project-properties</goal>
                         </goals>
-                        <configuration>
-                            <files>
-                                <file>sonar-project.properties</file>
-                            </files>
-                        </configuration>
+<!--                        <configuration>-->
+<!--                            <files>-->
+<!--                                <file>sonar-project.properties</file>-->
+<!--                            </files>-->
+<!--                        </configuration>-->
                     </execution>
                 </executions>
             </plugin>
@@ -127,41 +127,41 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>pre-unit-tests</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <!-- Ensures that the code coverage report for unit tests is created after unit tests have been run -->
-                        <id>post-unit-test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pre-integration-tests</id>
-                        <goals>
-                            <goal>prepare-agent-integration</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <!-- Ensures that the code coverage report for integration tests is created after integration tests have been run -->
-                        <id>post-integration-tests</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>report-integration</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.jacoco</groupId>-->
+<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--                <version>${jacoco-maven-plugin.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>pre-unit-tests</id>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-agent</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        &lt;!&ndash; Ensures that the code coverage report for unit tests is created after unit tests have been run &ndash;&gt;-->
+<!--                        <id>post-unit-test</id>-->
+<!--                        <phase>test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>report</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>pre-integration-tests</id>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-agent-integration</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        &lt;!&ndash; Ensures that the code coverage report for integration tests is created after integration tests have been run &ndash;&gt;-->
+<!--                        <id>post-integration-tests</id>-->
+<!--                        <phase>post-integration-test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>report-integration</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>

@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: getdressed
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD:
+
+    ports:
+      - "3306:3306"
+
+  backend:
+    build:
+      context: ./GetDressed
+      dockerfile: Dockerfile
+
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/getdressed?createDatabaseIfNotExist=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+    depends_on:
+      - mysql
+
+  frontend:
+    build:
+      context: ./GetDressed-FE
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
